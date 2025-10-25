@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Feliz día de la Ingeniera Agroindustrial, Pochi 💚</title>
+<style>
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(180deg,#fffaf3,#f0fdf4);
+  color:#253428;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.container{
+  max-width:800px;
+  background:#ffffffcc;
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.08);
+  padding:40px;
+  position:relative;
+  text-align:center;
+}
+h1{
+  color:#166534;
+  font-size:1.9em;
+  margin-bottom:10px;
+}
+h1 span{color:#d97706;}
+p{
+  color:#374151;
+  font-size:1em;
+  line-height:1.6em;
+}
+.heart{
+  color:#ef4444;
+  font-size:1.4em;
+}
+button{
+  margin:10px;
+  padding:12px 22px;
+  border-radius:10px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{transform:scale(1.05);}
+.btn1{
+  background:#22c55e;
+  color:white;
+}
+.btn2{
+  background:white;
+  border:2px solid #22c55e;
+  color:#166534;
+}
+footer{
+  margin-top:30px;
+  font-size:0.85em;
+  color:#6b7280;
+}
+.flower{
+  width:80px;
+  height:80px;
+  background:radial-gradient(circle at 30% 30%,#f87171,#dc2626);
+  border-radius:50%;
+  margin:20px auto;
+  position:relative;
+  animation:float 4s ease-in-out infinite;
+}
+.flower::before,.flower::after{
+  content:"";
+  position:absolute;
+  background:#16a34a;
+  width:14px;
+  height:40px;
+  bottom:-35px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:6px;
+}
+.flower::after{
+  width:40px;
+  height:14px;
+  bottom:-20px;
+  left:calc(50% - 20px);
+  transform:rotate(45deg);
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+.confetti{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  overflow:hidden;
+}
+.confetti div{
+  position:absolute;
+  width:10px;height:10px;
+  opacity:0.8;
+  border-radius:2px;
+  animation:fall 4s linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(-10px) rotate(0);}
+  100%{transform:translateY(110vh) rotate(360deg);}
+}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0006;
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  max-width:600px;
+  text-align:left;
+  color:#1f2937;
+}
+.modal-content h2{color:#166534;}
+.modal-content button{
+  background:#22c55e;
+  color:white;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+<audio autoplay loop volume="0.1">
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/27/audio_356af30e6a.mp3?filename=calm-nature-piano-144998.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Feliz día de la Ingeniera Agroindustrial, <span>Pochi</span> 🌾</h1>
+  <p>QQue la tierra te sonría hoy y siempre. Este pequeño rincón es para recordarte lo mucho que te amo y admirar tu pasión por aquella profesión que une muchisimas ciencia para potenciar la vida misma...💚</p>
+
+  <div class="flower"></div>
+
+  <p class="heart">Te amo mucho, Mi princesa ❤️</p>
+
+  <button class="btn1" id="btnSurpresa">🎉 Ver sorpresa</button>
+  <button class="btn2" id="btnCarta">💌 Leer carta</button>
+
+  <footer>Hecho con cariño para mi ingeniera favorita 🌱</footer>
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Mi querida Pochi,💚</h2>
+    <p>Hoy celebro tu día, Ingeniera Agroindustrial, alquimista de la tierra fértil y de los sueños que germinan.
+Gracias por cuidar cada raíz con tus manos sabias, por transformar el fruto del campo en esperanza y alimento.
+Tu labor une ciencia y ternura, razón y corazón; conviertes la naturaleza en arte, y la materia en vida.
+Eres fuerza que impulsa, sabiduría que florece y amor que cultiva.</p>
+    <p>Eres mi orgullo, mi inspiración y el alma que hace del trabajo un poema verde.</p>
+    <p>Feliz día de la Ingeniera Agroindustrial. Estoy muy orgulloso de ti.</p>
+    <p>Con todo mi amor,<br><strong>- J. ❤️</strong></p>
+    <button onclick="cerrarCarta()">Cerrar</button>
+  </div>
+</div>
+
+<script>
+const confettiContainer=document.getElementById("confetti");
+function confetti(){
+  for(let i=0;i<50;i++){
+    const div=document.createElement("div");
+    div.style.left=Math.random()*100+"%";
+    div.style.backgroundColor=["#22c55e","#facc15","#ef4444","#3b82f6","#d97706"][Math.floor(Math.random()*5)];
+    div.style.animationDuration=3+Math.random()*3+"s";
+    div.style.width=div.style.height=6+Math.random()*6+"px";
+    confettiContainer.appendChild(div);
+    setTimeout(()=>div.remove(),6000);
+  }
+}
+document.getElementById("btnSurpresa").onclick=confetti;
+
+document.getElementById("btnCarta").onclick=()=>document.getElementById("modal").style.display="flex";
+function cerrarCarta(){document.getElementById("modal").style.display="none";}
+</script>
+</body>
+</html>
